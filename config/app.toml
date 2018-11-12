@@ -1,0 +1,11 @@
+# A sample TOML config file.
+[connections]
+Address = ":9392"  
+DBConnection="mongodb://localhost:27017"
+DBName="MyDb"
+
+[casbin]
+DBConnection="127.0.0.1:27017/casbin"
+DBName="casbin"
+ModelConf="basic_model.conf"
+

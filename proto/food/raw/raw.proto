@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package go.micro.srv.dietetics;
+
+service RawService {
+rpc AddRawFood (RawFood) returns (GeneralResponse);
+rpc AddNutrition(AddNutritionRequest)returns (GeneralResponse);
+rpc DeleteNutrition(DeleteNutritionRequest)returns (GeneralResponse);
+rpc UpdateRawFood(RawFood) returns(GeneralResponse);
+rpc GetRawFood(GetRawFoodRequest)returns(RawFood);
+rpc GetRawFoods(GetRawFoodRequests)returns(RawFoodsResponse);
+rpc DeleteRawFood(PairRequest) returns (GeneralResponse);
+}
+
+message RawFood{
+    string Code=1;
+    string Group=2;
+    string Name=3;
+    string Varietie=4;
+    float SampleQuantity=5;
+    string SampleUnit=6;
+    repeated Nutrition Nutritions=7; 
+    string Tags =8;
+    string Status=9;
+    string LastModified = 10;
+}
+
+message Nutrition{
+    string Type =1; //Moisture 
+    string Name=2;  //WATER 
+    float Quantity=3;//9.89
+    float Aprox=4; //0.0
+    string Unit=5; //grams
+    string Group=6;//Moisture
+    string Tags=7;//moisture water 
+}
+
+message AddNutritionRequest{
+    repeated PairRequest Query=1;
+    Nutrition nutrition=2;
+}
+
+message DeleteNutritionRequest{
+    repeated PairRequest RootSelector=1;
+    repeated PairRequest ChildSelector=2;
+}
+message GetRawFoodRequests{
+    int32 Limit=1;
+    int32 Skip=2;
+    repeated PairRequest RawFoods=3;
+}
+
+message GetRawFoodRequest{
+    repeated PairRequest RawFoods=1;
+}
+
+
+message RawFoodsResponse{
+    repeated RawFood RawFoodRes=1;
+}
+
+message PairRequest{
+    string Key=1;
+    string Value=2;
+}
+
+message GeneralResponse{
+    string Id =1;
+    int32 Code=2;
+    string Detail=3;
+    string Status=4;
+}

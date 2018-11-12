@@ -1,0 +1,8 @@
+protoc --proto_path=. --micro_out=. --go_out=. proto/food/raw/raw.proto
+
+consul agent -dev
+
+// This is to create service in windows
+sc.exe create "Consul" binpath=C:\consul
+
+protoc --proto_path=. --micro_out=. --go_out=. vendor.proto

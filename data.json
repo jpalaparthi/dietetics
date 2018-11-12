@@ -1,0 +1,107 @@
+{
+    "code": "A001",
+    "group": "Cerels and Millets",
+    "name": "Amaranth seeds,black(Amaranthus cruentus)",
+    "varietie": "Veg",
+    "sampleQuantity": "100",
+    "sampleMeasurement": "g",
+    "nutritions": [
+        {
+            "type": "Moisture",
+            "quantity": "9.89+",
+            "measurement": "g"
+        },
+        {
+            "type": "Protine",
+            "quantity": "14.59",
+            "measurement": "g"
+        }
+    ],
+    "tags": "dietry,fiber,cerels,millets,veg"
+}
+
+
+{
+    "skip":0,
+    "limit":5,
+    "res":[{
+    "key":"code",
+    "value":"A004"
+    },
+    {
+    "key":"varietie",
+    "value":"Veg"
+    }]
+    }
+
+//postman or react client
+
+{
+    "service":"go.micro.srv.dietetics",
+    "method":"RawService.AddRawFood",
+    "request":{
+        "code": "A001",
+        "group": "Cerels and Millets",
+        "name": "Amaranth seeds,black(Amaranthus cruentus)",
+        "varietie": "Veg",
+        "sampleQuantity": 100.50,
+        "sampleUnit": "g",
+        "nutritions": [
+            {
+                "type": "Moisture",
+                "quantity": "9.89+",
+                "measurement": "g"
+            },
+            {
+                "type": "Protine",
+                "quantity": "14.59",
+                "measurement": "g"
+            }
+        ],
+        "tags": "dietry,fiber,cerels,millets,veg"
+    }
+    }
+
+
+    {
+        "RootSelector":[{
+        "key":"code",
+        "value":"A010"
+        }],
+        "ChildSelector":[{
+        "key":"type",
+        "value":"Sample"
+        }]
+    }
+
+
+    5be1e0496b2e7deb114d58db
+
+    RawService.DeleteRawFood
+    RawService.AddRawFood
+    RawService.AddNutrition
+
+    {
+        "service":"go.micro.srv.dietetics",
+        "method":"RawService.AddNutition",
+        "request":{
+            "Query":[
+                {
+                    "key":"code",
+                    "value":"A003"
+                }
+                
+                ],
+                "nutrition":{
+                    "type":"Moisture",
+                    "name":"water",
+                    "quantity":9.89,
+                    "aprox":0.0,
+                    "unit":"grams",
+                    "group":"Moisture",
+                    "tags":"moisture water grams"
+                }
+            }
+        }
+        
+        
